@@ -21,12 +21,12 @@
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/editTextTextPassword"
         android:textColor="@android:color/holo_blue_light"
-        android:layout_width="232dp"
+        android:layout_width="@dimen/mytextwidth"
         android:layout_height="55dp"
         android:layout_marginBottom="58dp"
         android:ems="10"
@@ -40,7 +40,7 @@
     <Button
         android:id="@+id/button"
        android:textColor="@color/black"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginBottom="361dp"
@@ -48,4 +48,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
