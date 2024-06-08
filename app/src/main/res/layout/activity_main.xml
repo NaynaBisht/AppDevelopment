@@ -2,15 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#92EDD3AC"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#92EDD3AC"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/editTextText"
-        android:textColor="@color/mycolor"
         android:layout_width="232dp"
         android:layout_height="55dp"
         android:layout_marginStart="60dp"
@@ -19,19 +18,20 @@
         android:ems="10"
         android:hint="@string/enter_name"
         android:inputType="text"
+        android:textColor="@color/mycolor"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:textColor="@android:color/holo_blue_light"
         android:layout_width="@dimen/mytextwidth"
         android:layout_height="55dp"
         android:layout_marginBottom="58dp"
         android:ems="10"
         android:hint="@string/enter_password"
         android:inputType="textPassword"
+        android:textColor="@android:color/holo_blue_light"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="@+id/editTextText"
         app:layout_constraintStart_toStartOf="@+id/editTextText"
@@ -39,14 +39,16 @@
 
     <Button
         android:id="@+id/button"
-       android:textColor="@color/black"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginBottom="361dp"
         android:text="Login"
+        android:onClick="clickHandler"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        tools:ignore="OnClick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
