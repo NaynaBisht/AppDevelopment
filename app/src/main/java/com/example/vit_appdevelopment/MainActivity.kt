@@ -27,8 +27,9 @@ class MainActivity : AppCompatActivity() {
 //        intent = intention
         var dialIntent: Intent = Intent(Intent.ACTION_DIAL)
        startActivity(dialIntent)
+//        var dialIntent: Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:98765432"))
 
-        var webIntent: Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:98765432"))  //intent= intention
+        var webIntent: Intent = Intent(Intent.ACTION_VIEW,Uri.parse("http://www.ndtv.com"))
         startActivity(webIntent)
     }
 }
