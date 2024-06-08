@@ -1,5 +1,6 @@
 package com.example.vit_appdevelopment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -22,5 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     fun clickHandler(view: View) {
         Log.i("MainActivity-clickHandler", "button clicked")
+//        intent = intention
+        var dialIntent: Intent = Intent(Intent.ACTION_DIAL)
+        startActivity(dialIntent)
     }
 }
