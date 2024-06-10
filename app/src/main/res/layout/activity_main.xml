@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginBottom="361dp"
-        android:text="Login"
+        android:text="@string/login_label"
         android:onClick="clickHandler"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
