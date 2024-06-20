@@ -25,15 +25,19 @@ class MainActivity : AppCompatActivity() {
 
     fun clickHandler(view: View) {
         Log.i("MainActivity-clickHandler", "button clicked")
-//        intent = intention
-        var dialIntent: Intent = Intent(Intent.ACTION_DIAL)
-       startActivity(dialIntent)
+        /*var dialIntent: Intent = Intent(Intent.ACTION_DIAL)
+       startActivity(dialIntent)*/
 //        var dialIntent: Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:98765432"))
 
 //        var webIntent: Intent = Intent(Intent.ACTION_VIEW,Uri.parse("http://www.ndtv.com"))
 //        startActivity(webIntent)
 
-        createAlarm("vit", 19, 32)
+//        createAlarm("vit", 9, 21)
+
+        val hIntent = Intent(this, HomeActivity::class.java)
+        startActivity(hIntent)
+
+
     }
 
     fun createAlarm(message:String, hour:Int, minutes:Int){
