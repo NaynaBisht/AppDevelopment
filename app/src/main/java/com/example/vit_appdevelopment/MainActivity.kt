@@ -65,11 +65,31 @@ class MainActivity : AppCompatActivity() {
 
 //        createAlarm("vit", 9, 21)
 
+        var c = 10+20
+        add(10,20)
+
         val hIntent = Intent(this, HomeActivity::class.java)
         hIntent.putExtra("nkey", "android")
         throw NullPointerException("demo vit exception")
         startActivity(hIntent)
 
+    }
+
+    private fun add(i:Int, i1:Int):Int{
+        var c = 20
+        var d = 20*i
+        mul(5,4)
+        return i+i1
+    }
+
+    private fun mul(i:Int, i1:Int):Int{
+        val d = i*i1
+        div(6,3)
+        return d
+    }
+
+    private fun div(i: Int, i1: Int){
+        add(10,20)
     }
 
     fun createAlarm(message:String, hour:Int, minutes:Int){
