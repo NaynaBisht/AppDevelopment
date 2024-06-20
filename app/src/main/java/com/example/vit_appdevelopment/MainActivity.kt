@@ -36,7 +36,12 @@ class MainActivity : AppCompatActivity() {
 //    activity has paused
     override fun onPause() {
         super.onPause()
-    Log.w(TAG, "activity is paused")
+        Log.w(TAG, "activity is paused")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.w(TAG, "activity is resumed")
     }
 
     override fun onStop() {
@@ -62,8 +67,8 @@ class MainActivity : AppCompatActivity() {
 
         val hIntent = Intent(this, HomeActivity::class.java)
         hIntent.putExtra("nkey", "android")
+        throw NullPointerException("demo vit exception")
         startActivity(hIntent)
-
 
     }
 
