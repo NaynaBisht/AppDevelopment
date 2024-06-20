@@ -3,6 +3,7 @@ package com.example.vit_appdevelopment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -29,7 +30,18 @@ class MainActivity : AppCompatActivity() {
        startActivity(dialIntent)
 //        var dialIntent: Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:98765432"))
 
-        var webIntent: Intent = Intent(Intent.ACTION_VIEW,Uri.parse("http://www.ndtv.com"))
-        startActivity(webIntent)
+//        var webIntent: Intent = Intent(Intent.ACTION_VIEW,Uri.parse("http://www.ndtv.com"))
+//        startActivity(webIntent)
+
+        createAlarm("vit", 19, 32)
+    }
+
+    fun createAlarm(message:String, hour:Int, minutes:Int){
+        val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply{
+            putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            putExtra(AlarmClock.EXTRA_HOUR, hour)
+            putExtra(AlarmClock.EXTRA_MINUTES,minutes)
+        }
+        startActivity(intent)
     }
 }
