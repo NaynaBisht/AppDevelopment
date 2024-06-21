@@ -19,6 +19,9 @@ fun main(){
         println("item at $index is $element\n")
     }
 
+    var name = "abdul"
+    println(name.commaSeparated("some other string"))
+
     for (i in 1..5) print(i)
     println()
     for (i in 5 downTo 1) print(i)
@@ -51,3 +54,7 @@ fun multiply(firstNo:Int, secondNo:Int, operation:Char):Int{
     return firstNo*secondNo
 }
 fun double(x:Int) = x*2
+
+fun String.commaSeparated(values:String):String{
+    return "comma separated string -- "+values
+}
