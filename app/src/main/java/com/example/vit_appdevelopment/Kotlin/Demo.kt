@@ -1,6 +1,9 @@
 package com.example.vit_appdevelopment.Kotlin
 
 fun main(){
+
+    val s = Square(10)
+
     val numberOfFish = 30
     val numberOfPlants = 23
     if(numberOfFish >numberOfPlants ){
@@ -57,4 +60,10 @@ fun double(x:Int) = x*2
 
 fun String.commaSeparated(values:String):String{
     return "comma separated string -- "+values
+}
+
+class Square(val side:Int){
+    init{
+        println(side*2)
+    }
 }
