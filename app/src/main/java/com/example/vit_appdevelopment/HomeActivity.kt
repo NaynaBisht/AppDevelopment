@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -59,6 +61,13 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
+    }
+
+    fun getShowText(view: View) {
+        var etUi:EditText = findViewById(R.id.etUITest)
+        var text = etUi.text.toString()
+        var tvUi: TextView = findViewById(R.id.tvUI)
+        tvUi.setText(text)
     }
 
 //    override fun onItemClick(adapter: AdapterView<*>?, view: View?, position: Int, id: Long) {
