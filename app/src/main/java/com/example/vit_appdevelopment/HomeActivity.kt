@@ -1,61 +1,40 @@
 package com.example.vit_appdevelopment
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ListView
-import android.widget.Spinner
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.vit_appdevelopment.database.Item
+import com.example.vit_appdevelopment.database.ItemDao
+import com.example.vit_appdevelopment.database.ItemRoomDatabase
+import com.example.vit_appdevelopment.databinding.ActivityHomeBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
-    AdapterView.OnItemClickListener {
+class HomeActivity : AppCompatActivity(){
 
     var TAG = HomeActivity::class.java.simpleName
-
-    lateinit var mySpinner: Spinner
-    lateinit var myListView: ListView
+    private lateinit var binding: ActivityHomeBinding
+    lateinit var dao: ItemDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        var  database = ItemRoomDatabase.getDatabase(this)
+        dao = database.itemDao()
 
-        mySpinner = findViewById(R.id.spinner)
-        myListView = findViewById(R.id.listView)
-        myListView.isClickable = true
-
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding.btnDbInsert.setOnClickListener{
+            insertDataDb()
         }
 
-        mySpinner.onItemSelectedListener = this
-        myListView.setOnItemClickListener(this)
-
-//        var data = intent.extras?.getString("nkey")
-//        Log.i("HomeActivity", "data is ="+data)
-//        val homeTextView: TextView = findViewById(R.id.textViewHome)
-//        homeTextView.setText(data)
+    }
+    private fun insertDataDb() {
+        GlobalScope.launch {
+            var item = Item(21,"fruits",11.11,11)
+            dao.insert(item)
+        }
     }
 
-    override fun onItemSelected(adapter: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var item:String = adapter?.getItemAtPosition(position).toString()
-        Log.i(TAG, item)
-    }
-
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onItemClick(adapter: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var item:String = adapter?.getItemAtPosition(position).toString()
-        Log.i(TAG, item)
-    }
 }
