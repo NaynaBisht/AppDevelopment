@@ -12,20 +12,23 @@
         android:id="@+id/textViewHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="28dp"
         android:text="home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnGet"
-        android:onClick="getJson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:onClick="getJson"
         android:text="Get JSON"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="84dp" />
+        app:layout_constraintEnd_toEndOf="@+id/textViewHome"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/textViewHome"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHome" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

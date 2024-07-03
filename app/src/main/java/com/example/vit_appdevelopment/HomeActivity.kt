@@ -34,8 +34,10 @@ class HomeActivity : AppCompatActivity(){
     }
     private fun getMarsPhotos() {
         GlobalScope.launch {
-           var jsonString  = MarsApi.retrofitService.getPhotos()
-            Log.i("homeactivity ", jsonString)
+           var listMarsPhotos  = MarsApi.retrofitService.getPhotos()
+//            var textViewHome:TextView = findViewById(R.id.textViewHome)
+//            textViewHome.setText(listMarsPhotos.get(1).imgSrc)
+            Log.i( "homeactivity ", listMarsPhotos.size.toString())
         }
     }
 
