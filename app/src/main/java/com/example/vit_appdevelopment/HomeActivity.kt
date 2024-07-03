@@ -12,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -35,6 +36,7 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener{
         myRecycler = findViewById(R.id.recyclerView)
 
         myRecycler.layoutManager = LinearLayoutManager(this)
+//            GridLayoutManager(this, 2) - in rows
 
         var wordsAdapter = WordsAdapter(dataArray)
         myRecycler.adapter = wordsAdapter
@@ -74,4 +76,18 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 //        var item:String = adapter?.getItemAtPosition(position).toString()
 //        Log.i(TAG, item)
 //    }
+
+//    suspend itself -- resume
+    fun downloadImage(): String{
+        return "image"
+    }
+
+// url for getting weather data
+    fun getWeather(cityName:String):String{
+        return "{ temp:32, windspeed:40 }"
+    }
+    fun getTemp(city:String):Int{
+        return 25
+    }
+
 }
