@@ -38,6 +38,8 @@ class HomeActivity : AppCompatActivity(){
 //            var textViewHome:TextView = findViewById(R.id.textViewHome)
 //            textViewHome.setText(listMarsPhotos.get(1).imgSrc)
             Log.i( "homeactivity ", listMarsPhotos.size.toString())
+            Log.i( "homeactivity - url ", listMarsPhotos.get(1).imgSrc)
+
         }
     }
 
