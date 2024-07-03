@@ -58,7 +58,6 @@ class HomeActivity : AppCompatActivity(){
 
                 withContext(Dispatchers.Main) {
                     photos = listMarsPhotos
-                    imageView.load(listMarsPhotos.get(0).imgSrc)
                     marsAdapter = MarsAdapter(photos)
                     marsRecyclerView.adapter = marsAdapter
                     marsAdapter.notifyDataSetChanged()
