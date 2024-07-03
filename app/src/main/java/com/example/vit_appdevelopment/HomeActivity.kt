@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.vit_appdevelopment.databinding.ActivityHomeBinding
 import com.example.vit_appdevelopment.network.MarsApi
 import com.example.vit_appdevelopment.network.MarsPhoto
 import kotlinx.coroutines.CoroutineScope
@@ -23,24 +24,30 @@ class HomeActivity : AppCompatActivity(){
 
     var TAG = HomeActivity::class.java.simpleName
 
-    lateinit var marsRecyclerView: RecyclerView
+    private lateinit var binding : ActivityHomeBinding
+
+//    lateinit var marsRecyclerView: RecyclerView
     lateinit var marsAdapter: MarsAdapter
     lateinit var photos: List<MarsPhoto>
-    lateinit var imageView: ImageView
+//    lateinit var imageView: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_home)
+//        setContentView(R.layout.activity_home)
 
-        imageView = findViewById(R.id.imageView)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        marsRecyclerView = findViewById(R.id.recyclerViewUrls)
-        marsRecyclerView.layoutManager = LinearLayoutManager(this)
+//        imageView = findViewById(R.id.imageView)
+
+//        marsRecyclerView = findViewById(R.id.recyclerViewUrls)/
+        binding.recyclerViewUrls.layoutManager = LinearLayoutManager(this)
         photos = ArrayList()
         marsAdapter = MarsAdapter(photos)
-        marsRecyclerView.adapter = marsAdapter
+        binding.recyclerViewUrls.adapter = marsAdapter
 //        marsAdapter = MarsAdapter(photos)
 
 
@@ -59,8 +66,9 @@ class HomeActivity : AppCompatActivity(){
                 withContext(Dispatchers.Main) {
                     photos = listMarsPhotos
                     marsAdapter = MarsAdapter(photos)
-                    marsRecyclerView.adapter = marsAdapter
+//                    marsRecyclerView.adapter = marsAdapter
                     marsAdapter.notifyDataSetChanged()
+//                    binding.imageView.load()
 
                     Log.i("homeactivity", listMarsPhotos.size.toString())
                     Log.i("homeactivity - url", listMarsPhotos.get(1).imgSrc)
