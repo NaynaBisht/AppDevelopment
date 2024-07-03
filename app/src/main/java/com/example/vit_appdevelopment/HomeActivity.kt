@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -25,6 +26,7 @@ class HomeActivity : AppCompatActivity(){
     var TAG = HomeActivity::class.java.simpleName
 
     private lateinit var binding : ActivityHomeBinding
+    val photoMarsDataBinding = MarsPhoto("007", "moon.com")
 
 //    lateinit var marsRecyclerView: RecyclerView
     lateinit var marsAdapter: MarsAdapter
@@ -37,9 +39,8 @@ class HomeActivity : AppCompatActivity(){
         enableEdgeToEdge()
 //        setContentView(R.layout.activity_home)
 
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        val binding: ActivityHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+        binding.marsphotoxml = photoMarsDataBinding
 
 //        imageView = findViewById(R.id.imageView)
 
